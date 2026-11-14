@@ -47,11 +47,16 @@ function reverseIndex() {
         pageNumber = totalPages - 1;
     }
 }
-
-//profile btn
+// PROFILE BUTTON - RETURN TO FIRST PAGE
 const backProfileBtn = document.querySelector('.back-profile');
 
+let isProfileClicked = false;
+
 backProfileBtn.onclick = () => {
+
+    if (isProfileClicked) return;
+    isProfileClicked = true;
+
     pages.forEach((_, index) => {
         setTimeout(() => {
             reverseIndex();
@@ -60,10 +65,14 @@ backProfileBtn.onclick = () => {
             setTimeout(() => {
                 reverseIndex();
                 pages[pageNumber].style.zIndex = 10 + index;
-            }, 500 )
+            }, 500)
 
         }, (index + 1) * 200 + 100)
     })
+
+    setTimeout(() => {
+        isProfileClicked = false;
+    }, pages.length * 200 + 1600);
 }
 
 //animation
