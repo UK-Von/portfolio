@@ -48,32 +48,36 @@ function reverseIndex() {
     }
 }
 // PROFILE BUTTON - RETURN TO FIRST PAGE
+//profile btn
 const backProfileBtn = document.querySelector('.back-profile');
 
-let isProfileClicked = false;
+let isProfileAnimating = false;
 
-backProfileBtn.onclick = () => {
+backProfileBtn.onclick = (e) => {
+    e.preventDefault();
 
-    if (isProfileClicked) return;
-    isProfileClicked = true;
+    if (isProfileAnimating) return;
+    isProfileAnimating = true;
 
     pages.forEach((_, index) => {
+        const page = pages[pages.length - 1 - index];
+        const delay = (index + 1) * 200 + 100;
+
         setTimeout(() => {
-            reverseIndex();
-            pages[pageNumber].classList.remove('turn');
+            page.classList.remove('turn');
 
             setTimeout(() => {
-                reverseIndex();
-                pages[pageNumber].style.zIndex = 10 + index;
-            }, 500)
+                page.style.zIndex = 10 + index;
+            }, 500);
 
-        }, (index + 1) * 200 + 100)
-    })
+        }, delay);
+    });
 
     setTimeout(() => {
-        isProfileClicked = false;
+        isProfileAnimating = false;
     }, pages.length * 200 + 1600);
-}
+};
+
 
 //animation
 const coverRight = document.querySelector('.cover.cover-right');
