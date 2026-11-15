@@ -39,6 +39,7 @@ padding-top: 2.2rem; /* <-- adjust this for the top gap */
     height: 45rem;
     padding: 2rem;
     perspective: 250rem;
+    zoom: 1;
     animation: show-animate 2s forwards;
 }
 
