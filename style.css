@@ -39,7 +39,6 @@ padding-top: 2.2rem; /* <-- adjust this for the top gap */
     height: 45rem;
     padding: 2rem;
     perspective: 250rem;
-    zoom: 1;
     animation: show-animate 2s forwards;
 }
 
@@ -521,7 +520,7 @@ html {
         left: 50%;
         top: 50%;
 
-        transform: translate(-50%, -50%) scale(0.35);
+        transform: translate(-50%, -50%) scale(0.25);
         transform-origin: center center;
 
         animation: mobile-show-animate 2s forwards;
