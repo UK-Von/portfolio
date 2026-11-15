@@ -1,25 +1,40 @@
 //start
 const pageTurnBtn = document.querySelectorAll('.nextprev-btn');
 
+let isPageTurning = false;
+
 pageTurnBtn.forEach((el, index) => {
     el.onclick = () => {
+
+        // Prevent repeated clicks during page animation
+        if (isPageTurning) return;
+
+        isPageTurning = true;
+
         const pageTurnId = el.getAttribute('data-page');
         const pageTurn = document.getElementById(pageTurnId);
 
         if (pageTurn.classList.contains('turn')) {
             pageTurn.classList.remove('turn');
+
             setTimeout(() => {
                 pageTurn.style.zIndex = 20 - index;
-            },500)
+            }, 500);
         }
         else {
             pageTurn.classList.add('turn');
+
             setTimeout(() => {
                 pageTurn.style.zIndex = 20 + index;
-            },500)
+            }, 500);
         }
-    }
-})
+
+        // Allow another click after the flip animation
+        setTimeout(() => {
+            isPageTurning = false;
+        }, 1100);
+    };
+});
 
 //contact me button
 const pages = document.querySelectorAll('.book-page.page-right');
