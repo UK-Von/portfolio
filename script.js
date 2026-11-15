@@ -1,3 +1,29 @@
+// ULTRA ZOOM OUT ANIMATION
+window.addEventListener("load", () => {
+
+    const wrapper = document.querySelector(".wrapper");
+
+    if (!wrapper) return;
+
+    wrapper.style.transition = "none";
+    wrapper.style.transform = "scale(3)";
+    wrapper.style.opacity = "0";
+
+    // Allow browser to apply starting zoom
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+
+            wrapper.style.transition =
+                "transform 2.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.5s ease";
+
+            wrapper.style.transform = "scale(1)";
+            wrapper.style.opacity = "1";
+
+        });
+    });
+
+});
+
 //start
 const pageTurnBtn = document.querySelectorAll('.nextprev-btn');
 
