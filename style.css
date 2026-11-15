@@ -520,7 +520,7 @@ html {
         left: 50%;
         top: 50%;
 
-        transform: translate(-50%, -50%) scale(0.25);
+        transform: translate(-50%, -50%) scale(0.35);
         transform-origin: center center;
 
         animation: mobile-show-animate 2s forwards;
